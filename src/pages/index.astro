@@ -1,54 +1,90 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import QuizCard from '../components/QuizCard.astro';
+
+const nr = 0;
+
+const questionsArray = [
+	{
+		nr: 1,
+		question: 'Inside which HTML element do we put the JavaScript?',
+		answer1: {
+			answer:'<scripting/>',
+			isCorrect: false
+		},
+		answer2: {
+			answer:'<script/>',
+			isCorrect: true
+		},
+		answer3: {
+			answer:'<js/>',
+			isCorrect: false
+		},
+		answer4: {
+			answer:'<javascript/>',
+			isCorrect: false
+		}
+	},
+	{
+		nr: 2,
+		question: 'How do you write "Hello World" in an alert box?',
+		answer1: {
+			answer:'msgBox("Hello World");',
+			isCorrect: false
+		},
+		answer2: {
+			answer:'alert("Hello World");',
+			isCorrect: true
+		},
+		answer3: {
+			answer:'alertBox("Hello World");',
+			isCorrect: false
+		},
+		answer4: {
+			answer:'msg("Hello World");',
+			isCorrect: false
+		}
+	},
+	{
+		nr: 3,
+		question: 'How to write an IF statement in JavaScript?',
+		answer1: {
+			answer:'if i == 5 then',
+			isCorrect: false
+		},
+		answer2: {
+			answer:'if i = 5 then',
+			isCorrect: false
+		},
+		answer3: {
+			answer:'if i = 5',
+			isCorrect: false
+		},
+		answer4: {
+			answer:'if (i == 5}',
+			isCorrect: true
+		}
+	}
+];
 ---
 
-<Layout title="Astro test.">
+<Layout title="Little quiz 🚀">
 	<main>
+	<QuizCard
+		nr={questionsArray[nr].nr}
+		question={questionsArray[nr].question}
+		answer1={questionsArray[nr].answer1.answer}
+		isCorrect1={questionsArray[nr].answer1.isCorrect}
+		answer2={questionsArray[nr].answer2.answer}
+		isCorrect2={questionsArray[nr].answer2.isCorrect}
+		answer3={questionsArray[nr].answer3.answer}
+		isCorrect3={questionsArray[nr].answer3.isCorrect}
+		answer4={questionsArray[nr].answer4.answer}
+		isCorrect4={questionsArray[nr].answer4.isCorrect}
+	/>
+
 	</main>
+	<button>Siguiente</button>
 </Layout>
 
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
-</style>
+<style lang="scss"></style>
