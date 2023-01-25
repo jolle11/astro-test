@@ -1,0 +1,30 @@
+---
+export interface Props{
+	nr: number;
+	question: string;
+	answer1: string;
+	isCorrect1: boolean;
+	answer2: string;
+	isCorrect2: boolean;
+	answer3: string;
+	isCorrect3: boolean;
+	answer4: string;
+	isCorrect4: boolean;
+
+}
+
+const {nr, question, answer1, isCorrect1, answer2, isCorrect2, answer3, isCorrect3, answer4, isCorrect4} = Astro.props;
+---
+
+<div class="question">
+	<h1 class="question__title">Question {nr}</h1>
+	<h3 class="question__text">{question}</h3>
+	<p class={`question__answer ${isCorrect1 ? 'question__answer--true' : 'question__answer--false'}`}>a) {answer1}</p>
+	<p class={`question__answer ${isCorrect2 ? 'question__answer--true' : 'question__answer--false'}`}>b) {answer2}</p>
+	<p class={`question__answer ${isCorrect3 ? 'question__answer--true' : 'question__answer--false'}`}>c) {answer3}</p>
+	<p class={`question__answer ${isCorrect4 ? 'question__answer--true' : 'question__answer--false'}`}>d) {answer4}</p>
+</div>
+
+<style lang="scss">
+	
+</style>
