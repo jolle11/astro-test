@@ -1,71 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import QuizCard from '../components/QuizCard.astro';
+import questionsArray from '../utils/questionsArray';
+let nr : number = 0;
 
-const nr = 0;
-
-const questionsArray = [
-	{
-		nr: 1,
-		question: 'Inside which HTML element do we put the JavaScript?',
-		answer1: {
-			answer:'<scripting/>',
-			isCorrect: false
-		},
-		answer2: {
-			answer:'<script/>',
-			isCorrect: true
-		},
-		answer3: {
-			answer:'<js/>',
-			isCorrect: false
-		},
-		answer4: {
-			answer:'<javascript/>',
-			isCorrect: false
-		}
-	},
-	{
-		nr: 2,
-		question: 'How do you write "Hello World" in an alert box?',
-		answer1: {
-			answer:'msgBox("Hello World");',
-			isCorrect: false
-		},
-		answer2: {
-			answer:'alert("Hello World");',
-			isCorrect: true
-		},
-		answer3: {
-			answer:'alertBox("Hello World");',
-			isCorrect: false
-		},
-		answer4: {
-			answer:'msg("Hello World");',
-			isCorrect: false
-		}
-	},
-	{
-		nr: 3,
-		question: 'How to write an IF statement in JavaScript?',
-		answer1: {
-			answer:'if i == 5 then',
-			isCorrect: false
-		},
-		answer2: {
-			answer:'if i = 5 then',
-			isCorrect: false
-		},
-		answer3: {
-			answer:'if i = 5',
-			isCorrect: false
-		},
-		answer4: {
-			answer:'if (i == 5}',
-			isCorrect: true
-		}
-	}
-];
 ---
 
 <Layout title="Little quiz 🚀">
@@ -82,9 +20,15 @@ const questionsArray = [
 		answer4={questionsArray[nr].answer4.answer}
 		isCorrect4={questionsArray[nr].answer4.isCorrect}
 	/>
-
 	</main>
-	<button>Siguiente</button>
+	<button id="nextquestion" onclick={() => nr = nr+1}>Next question</button>
 </Layout>
 
 <style lang="scss"></style>
+
+<script>
+  function handleClick () {
+	{nr = nr + 1}
+  }
+  document.getElementById("nextquestion").addEventListener("click", handleClick);
+</script>

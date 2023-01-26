@@ -3,13 +3,13 @@ export interface Props{
 	nr: number;
 	question: string;
 	answer1: string;
-	isCorrect1: boolean;
+	isCorrect1: string;
 	answer2: string;
-	isCorrect2: boolean;
+	isCorrect2: string;
 	answer3: string;
-	isCorrect3: boolean;
+	isCorrect3: string;
 	answer4: string;
-	isCorrect4: boolean;
+	isCorrect4: string;
 
 }
 
@@ -19,12 +19,62 @@ const {nr, question, answer1, isCorrect1, answer2, isCorrect2, answer3, isCorrec
 <div class="question">
 	<h1 class="question__title">Question {nr}</h1>
 	<h3 class="question__text">{question}</h3>
-	<p class={`question__answer ${isCorrect1 ? 'question__answer--true' : 'question__answer--false'}`}>a) {answer1}</p>
-	<p class={`question__answer ${isCorrect2 ? 'question__answer--true' : 'question__answer--false'}`}>b) {answer2}</p>
-	<p class={`question__answer ${isCorrect3 ? 'question__answer--true' : 'question__answer--false'}`}>c) {answer3}</p>
-	<p class={`question__answer ${isCorrect4 ? 'question__answer--true' : 'question__answer--false'}`}>d) {answer4}</p>
+	<p id="answer1">a) {answer1}</p>
+	<p id="answer2">b) {answer2}</p>
+	<p id="answer3">c) {answer3}</p>
+	<p id="answer4">d) {answer4}</p>
+<!-- <p class={`question__answer ${isCorrect4 ? 'question__answer--true' : 'question__answer--false'}`}>d) {answer4}</p> -->
+
 </div>
 
 <style lang="scss">
-	
+.question{
+	&__title{
+
+	}
+	&__text{
+
+	}
+	&__answer{
+		&--correct{
+			background: green;
+		}
+		&--incorrect{
+			background: red;
+		}
+	}
+}
 </style>
+
+<script>
+	function handleClick1 () {
+		document.getElementById("answer1").classList.add({isCorrect1})
+	}
+	function handleClick2 () {
+		document.getElementById("answer2").classList.add(isCorrect2)
+	}
+	function handleClick3 () {
+		document.getElementById("answer3").classList.add(isCorrect3)
+	}
+	function handleClick4 () {
+		document.getElementById("answer4").classList.add(isCorrect4)
+	}
+	document.getElementById("answer1").addEventListener("click", handleClick1);
+	document.getElementById("answer2").addEventListener("click", handleClick2);
+	document.getElementById("answer3").addEventListener("click", handleClick3);
+	document.getElementById("answer4").addEventListener("click", handleClick4);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
